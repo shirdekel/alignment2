@@ -1,0 +1,83 @@
+---
+title: Clean alignment 2 data
+author: Shir Dekel
+date: '`r format(Sys.time())`'
+output_format: html_document
+vignette: >
+  %\VignetteIndexEntry{Clean alignment 2 data}
+  %\VignetteEngine{knitr::rmarkdown}
+  \usepackage[utf8]{inputenc}
+---
+
+Load packages and functions
+
+```{r}
+source(DataPackageR::project_path("packages.R"))
+project_path("R") %>%
+  list.files(full.names = TRUE) %>%
+  lapply(source)
+```
+
+Clean data
+
+```{r}
+data_raw <-
+  project_extdata_path("qualtrics") %>%
+  list.files(full.names = TRUE) %>%
+  map_dfr(~ .x %>%
+    read_csv(col_types = cols()))
+
+dv <- c("ranking", "allocation", "confidence", "justification")
+
+data_combined <-
+  data_raw %>%
+  rename_qualtrics() %>%
+  split_pivot_join_experiment3(dv)
+
+data <-
+  data_combined %>%
+  group_by(prolific) %>%
+  mutate(date_rank = dense_rank(StartDate)) %>%
+  filter(date_rank == 1) %>%
+  ungroup() %>%
+  shirthesis::add_id_column(prolific) %>%
+  mutate(
+    across(reliability_amount, recode_reliability),
+    across(alignment, recode_alignment),
+    across(weighting, recode_weighting),
+    across(age, recode_age),
+    npv_amount = get_npv_amount(project),
+    across(where(shirthesis::check_numeric), as.numeric),
+    across(
+      c(alignment, reliability_amount),
+      ~ .x %>%
+        fct_relevel(c("low", "high"))
+    ),
+    sample = "prolific"
+  ) %>%
+  clean_forecast() %>%
+  shirthesis::get_max_min_difference(
+    npv_amount, alignment,
+    reliability_amount
+  ) %>%
+  select(-c(
+    prolific,
+    Status,
+    IPAddress,
+    RecipientLastName,
+    RecipientFirstName,
+    RecipientEmail,
+    LocationLongitude,
+    LocationLatitude,
+    ExternalReference,
+    DistributionChannel,
+    UserLanguage,
+    Q83,
+    RecordedDate,
+    Progress,
+    Finished
+  )) %>%
+  janitor::clean_names()
+```
+
+
