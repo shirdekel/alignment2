@@ -166,7 +166,7 @@ pre code {
 
 <h1 class="title toc-ignore">Clean alignment 2 data</h1>
 <h4 class="author">Shir Dekel</h4>
-<h4 class="date">2021-05-17 17:31:16</h4>
+<h4 class="date">2021-05-17 17:35:03</h4>
 
 </div>
 
@@ -182,6 +182,14 @@ pre code {
   lapply(source)</code></pre>
 <pre><code>## [[1]]
 ## [[1]]$value
+## NULL
+## 
+## [[1]]$visible
+## [1] TRUE
+## 
+## 
+## [[2]]
+## [[2]]$value
 ## function(data) {
 ## 
 ##   forecast_clean &lt;-
@@ -208,12 +216,12 @@ pre code {
 ## 
 ## }
 ## 
-## [[1]]$visible
+## [[2]]$visible
 ## [1] FALSE
 ## 
 ## 
-## [[2]]
-## [[2]]$value
+## [[3]]
+## [[3]]$value
 ## function(data_raw, dv, dv_id) {
 ## 
 ##   question_text &lt;-
@@ -253,12 +261,12 @@ pre code {
 ## 
 ## }
 ## 
-## [[2]]$visible
+## [[3]]$visible
 ## [1] FALSE
 ## 
 ## 
-## [[3]]
-## [[3]]$value
+## [[4]]
+## [[4]]$value
 ## function(project) {
 ## 
 ##   case_when(
@@ -271,12 +279,12 @@ pre code {
 ## 
 ## }
 ## 
-## [[3]]$visible
+## [[4]]$visible
 ## [1] FALSE
 ## 
 ## 
-## [[4]]
-## [[4]]$value
+## [[5]]
+## [[5]]$value
 ## function(data, dv_replacement, dv_id) {
 ## 
 ##   data_pivot &lt;-
@@ -322,12 +330,12 @@ pre code {
 ## 
 ## }
 ## 
-## [[4]]$visible
+## [[5]]$visible
 ## [1] FALSE
 ## 
 ## 
-## [[5]]
-## [[5]]$value
+## [[6]]
+## [[6]]$value
 ## function(data){
 ##   if (data %&gt;%
 ##       names() %&gt;%
@@ -350,12 +358,12 @@ pre code {
 ##   }
 ## }
 ## 
-## [[5]]$visible
+## [[6]]$visible
 ## [1] FALSE
 ## 
 ## 
-## [[6]]
-## [[6]]$value
+## [[7]]
+## [[7]]$value
 ## function(age) {
 ## 
 ##   age %&gt;%
@@ -363,12 +371,12 @@ pre code {
 ## 
 ## }
 ## 
-## [[6]]$visible
+## [[7]]$visible
 ## [1] FALSE
 ## 
 ## 
-## [[7]]
-## [[7]]$value
+## [[8]]
+## [[8]]$value
 ## function(alignment) {
 ## 
 ##   alignment %&gt;%
@@ -379,12 +387,12 @@ pre code {
 ## 
 ## }
 ## 
-## [[7]]$visible
+## [[8]]$visible
 ## [1] FALSE
 ## 
 ## 
-## [[8]]
-## [[8]]$value
+## [[9]]
+## [[9]]$value
 ## function(reliability) {
 ## 
 ##   reliability %&gt;%
@@ -396,12 +404,12 @@ pre code {
 ## 
 ## }
 ## 
-## [[8]]$visible
+## [[9]]$visible
 ## [1] FALSE
 ## 
 ## 
-## [[9]]
-## [[9]]$value
+## [[10]]
+## [[10]]$value
 ## function(weighting) {
 ## 
 ##   weighting_replacement &lt;-
@@ -416,12 +424,12 @@ pre code {
 ## 
 ## }
 ## 
-## [[9]]$visible
+## [[10]]$visible
 ## [1] FALSE
 ## 
 ## 
-## [[10]]
-## [[10]]$value
+## [[11]]
+## [[11]]$value
 ## function(data) {
 ## 
 ##   data_renamed &lt;-
@@ -445,12 +453,12 @@ pre code {
 ## 
 ## }
 ## 
-## [[10]]$visible
+## [[11]]$visible
 ## [1] FALSE
 ## 
 ## 
-## [[11]]
-## [[11]]$value
+## [[12]]
+## [[12]]$value
 ## function(data, dv) {
 ## 
 ##   batch_index &lt;-
@@ -501,7 +509,7 @@ pre code {
 ## 
 ## }
 ## 
-## [[11]]$visible
+## [[12]]$visible
 ## [1] FALSE</code></pre>
 <p>Clean data</p>
 <pre class="r"><code>data_raw &lt;-
