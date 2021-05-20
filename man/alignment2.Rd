@@ -4,13 +4,13 @@
 \name{alignment2}
 \alias{alignment2}
 \alias{alignment2-package}
-\title{Package Title}
+\title{Alignment 2 experiment}
 \description{
-A description of the data package
+Data and materials for the Alignment 2 experiment.
 }
 \details{
 alignment2
-A data package for alignment2.
+A data package for the Alignment 2 experiment.
 
 Use \code{data(package='alignment2')$results[, 3]} to see a list of available data sets in this data package
 and/or DataPackageR::load_all
